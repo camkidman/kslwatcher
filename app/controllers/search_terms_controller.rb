@@ -24,8 +24,10 @@ class SearchTermsController < ApplicationController
     @search_term = SearchTerm.new(search_term_params)
     # create the RSS URL here
     @search_term.rss_url = @search_term.ksl_query_string(@search_term.term)
-    @search_term.save
-    respond_with(@search_term)
+    if @search_term.save
+      @search_term.create_feed(serialized_feedjira: YAML::dump(Feedjira::Feed.fetch_and_parse(@search_term.ksl_query_string(@search_term.rss_url))))
+      respond_with(@search_term)
+    end
   end
 
   def update

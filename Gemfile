@@ -44,4 +44,4 @@ gem 'sidekiq'
 gem 'httparty'
 gem 'whenever', :require => false
 gem 'sinatra', :require => nil
-
+gem 'nokogiri'

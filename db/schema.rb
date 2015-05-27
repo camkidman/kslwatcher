@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527004756) do
+ActiveRecord::Schema.define(version: 20150527024418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feeds", force: true do |t|
+    t.text     "serialized_feedjira"
+    t.integer  "search_term_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "search_terms", force: true do |t|
     t.string   "term"
