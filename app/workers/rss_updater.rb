@@ -2,11 +2,13 @@ class RssUpdater
   include Sidekiq::Worker
 
   def perform
-    feeds = SearchTerm.all
-    feeds.each do |feed|
-      feed.update_attribute :rss_url, Feedjira::Feed.update(feed)
-
+    all_terms = SearchTerm.all
+    all_terms.each do |term|
+      updated_feed = Feedjira::Feed.update(YAML::load(term.feed))
+      unless updated_feed.new_entries.blank?
+        updated_feed.new_entries.each {|new_entry| EmailQueue.new(term.user, new_entry.url) } #TODO: I just made this up, need to implement an actual email queue system.
+      end
     end
-
   end
+
 end
