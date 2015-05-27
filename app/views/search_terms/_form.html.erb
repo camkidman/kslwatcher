@@ -1,0 +1,25 @@
+<%= form_for(@search_term) do |f| %>
+  <% if @search_term.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@search_term.errors.count, "error") %> prohibited this search_term from being saved:</h2>
+
+      <ul>
+      <% @search_term.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :term %><br>
+    <%= f.text_field :term %>
+  </div>
+  <div class="field">
+    <%= f.label :rss_url %><br>
+    <%= f.text_field :rss_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :search_terms
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

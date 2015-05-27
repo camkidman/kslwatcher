@@ -40,5 +40,8 @@ gem 'spring',        group: :development
 gem 'feedjira'
 gem 'pry-rails'
 gem 'devise'
-
+gem 'sidekiq'
+gem 'httparty'
+gem 'whenever', :require => false
+gem 'sinatra', :require => nil
 

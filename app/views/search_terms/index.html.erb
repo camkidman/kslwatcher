@@ -1,0 +1,27 @@
+<h1>Listing search_terms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Rss url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @search_terms.each do |search_term| %>
+      <tr>
+        <td><%= search_term.term %></td>
+        <td><%= search_term.rss_url %></td>
+        <td><%= link_to 'Show', search_term %></td>
+        <td><%= link_to 'Edit', edit_search_term_path(search_term) %></td>
+        <td><%= link_to 'Destroy', search_term, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Search term', new_search_term_path %>
