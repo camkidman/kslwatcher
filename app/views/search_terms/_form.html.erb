@@ -10,16 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :term %><br>
-    <%= f.text_field :term %>
-  </div>
-  <div class="field">
-    <%= f.label :rss_url %><br>
-    <%= f.text_field :rss_url %>
-  </div>
+    <div class="field-container">
+      <div class="field">
+        <%= f.label :term %><br>
+        <input id="search_term_term" name="search_term[term][]" type="text" style="background-image: none; background-position: 0% 0%; background-repeat: repeat;">
+      </div>
+    </div>
+    <a id="add-terms-button" href="#">Add Another Term</a>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+    $("#add-terms-button").click(function(){
+        $(".field-container").append('<div class="field"><label for="search_term_term">Term</label><br><input id="search_term_term" name="search_term[term][]" type="text" style="background-image: none; background-position: 0% 0%; background-repeat: repeat;"></div>')
+    })
+</script>

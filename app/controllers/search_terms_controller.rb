@@ -5,6 +5,7 @@ class SearchTermsController < ApplicationController
   respond_to :html
 
   def index
+    @new_term = SearchTerm.new
     @search_terms = SearchTerm.all
     respond_with(@search_terms)
   end
@@ -27,7 +28,7 @@ class SearchTermsController < ApplicationController
     @search_term.rss_url = @search_term.ksl_query_string(@search_term.term)
     if @search_term.save
       @search_term.create_feed(serialized_feedjira: YAML::dump(Feedjira::Feed.fetch_and_parse(@search_term.ksl_query_string(@search_term.rss_url))))
-      respond_with(@search_term)
+      redirect_to search_terms_path
     end
   end
 

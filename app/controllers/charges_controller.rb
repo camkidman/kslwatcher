@@ -24,4 +24,10 @@ class ChargesController < ApplicationController
     redirect_to charges_path
   end
 
+  private
+
+  def charges_params
+    params.require(:charge).permit(:user_email, :stripeToken, :amount, :description)
+  end
+
 end

@@ -46,3 +46,7 @@ gem 'sinatra', :require => nil
 gem 'sendgrid'
 gem 'stripe'
 gem "haml-rails", "~> 0.9"
+
+group :development do
+  gem 'meta_request'
+end
