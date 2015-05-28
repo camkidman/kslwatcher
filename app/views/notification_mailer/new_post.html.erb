@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Hi there <%= @user.name %></h1>
+<p>
+  There's been a new post for one of the keywords you're following!<br>
+</p>
+<p>
+  Go here to view it: <%= @post_url %>.
+</p>
+<p>You'll get these updates each time a new listing is made for: <%= @term_text %>!</p>
+<br />
+<p>To cancel these emails and control what you're watching for on KSL, go here:</p>
+</body>
+</html>

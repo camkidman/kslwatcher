@@ -1,13 +1,11 @@
 class NotificationMailer < ActionMailer::Base
   default from: "notifications@kslwatcher.com"
 
-  class UserMailer < ApplicationMailer
-    default from: 'notifications@example.com'
-
-    def welcome_email(user)
-      @user = user
-      @url  = 'http://example.com/login'
-      mail(to: @user.email, subject: 'Welcome to My Awesome Site')
-    end
+  def new_post(user, search_term, post_url)
+    @user = user
+    @term_text = search_term
+    @post_url = post_url
+    mail(to: @user.email, subject: "There's a new update from KSL Notifications!")
   end
+
 end
