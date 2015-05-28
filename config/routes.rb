@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :search_terms
+  resources :charges
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
@@ -57,4 +59,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root to: "search_terms#new"
 end

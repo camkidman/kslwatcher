@@ -1,5 +1,6 @@
 class SearchTerm < ActiveRecord::Base
   has_one :feed
+  has_and_belongs_to_many :users
 
   def parse_term_to_html_string(string)
     string.gsub(' ', '%20')

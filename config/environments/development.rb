@@ -37,4 +37,5 @@ Rails.application.configure do
 
   config.autoload_paths += %W(#{config.root}/app/workers)
   config.eager_load_paths += %W(#{config.root}/app/workers)
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

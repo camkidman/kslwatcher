@@ -44,3 +44,5 @@ gem 'sidekiq'
 gem 'whenever', :require => false
 gem 'sinatra', :require => nil
 gem 'sendgrid'
+gem 'stripe'
+gem "haml-rails", "~> 0.9"
