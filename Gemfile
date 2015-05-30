@@ -38,7 +38,6 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'feedjira'
-gem 'pry-rails'
 gem 'devise'
 gem 'sidekiq'
 gem 'whenever', :require => false
@@ -49,4 +48,7 @@ gem "haml-rails", "~> 0.9"
 
 group :development do
   gem 'meta_request'
+  gem "better_errors"
+  gem 'binding_of_caller'
+  gem 'pry-rails'
 end

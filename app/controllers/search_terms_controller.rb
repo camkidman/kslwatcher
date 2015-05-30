@@ -23,13 +23,15 @@ class SearchTermsController < ApplicationController
   end
 
   def create
-    @search_term = SearchTerm.new(search_term_params)
+    carryover = search_term_params
     # create the RSS URL here
-    @search_term.rss_url = @search_term.ksl_query_string(@search_term.term)
-    if @search_term.save
-      @search_term.create_feed(serialized_feedjira: YAML::dump(Feedjira::Feed.fetch_and_parse(@search_term.ksl_query_string(@search_term.rss_url))))
-      redirect_to search_terms_path
-    end
+    # @search_term.rss_url = @search_term.ksl_query_string(@search_term.term)
+
+    # if @search_term.save
+    #   @search_term.create_feed(serialized_feedjira: YAML::dump(Feedjira::Feed.fetch_and_parse(@search_term.ksl_query_string(@search_term.rss_url))))
+    #   redirect_to search_terms_path
+    # end
+    redirect_to new_charge_path(carryover)
   end
 
   def update
@@ -48,6 +50,6 @@ class SearchTermsController < ApplicationController
     end
 
     def search_term_params
-      params.require(:search_term).permit(:term, :rss_url)
+      params.require(:search_term).permit(:rss_url, :term => [])
     end
 end

@@ -1,5 +1,9 @@
 = form_tag charges_path do
   %article
     %label.amount
-      %span Amount: $5.00
-  %script.stripe-button{"data-amount" => "500", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/checkout.js"}
+      %span= "Amount: $#{@term_parameters.size}.00"
+    %input(type="hidden" name="charge[amount]" value="#{@term_parameters.size * 100}")
+    %input(type="hidden" name="charge[user_email]" value="#{current_user.email}")
+    - @term_parameters.each do |term_parameter|
+      %input(type="hidden" name="charge[terms][]" value="#{term_parameter}")
+  %script.stripe-button{"data-amount" => "#{@term_parameters.size * 100}", "data-description" => "Subscribing to updates on KSL Notifications", "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/checkout.js"}
