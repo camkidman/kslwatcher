@@ -1,0 +1,25 @@
+%h2 Your search terms:
+
+%table
+  %thead
+    %tr
+      %td
+        Term
+      %td
+        Expired?
+      %td
+        Created At
+      %td
+        Canceled At
+  %tbody
+    %tr
+      - @search_terms.each do |search_term|
+        %td
+          - search_term.term.humanize
+        %td
+          - search_term.expired.humanize
+        %td
+          - search_term.created_at
+        %td
+          Canceled??
+

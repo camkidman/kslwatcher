@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get '/users/:id/dashboard' => 'users#dashboard'
   resources :search_terms
   resources :charges
 
