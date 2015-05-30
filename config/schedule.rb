@@ -21,5 +21,8 @@
 
 every 1.minute do
   runner 'RssUpdater.perform_async'
-  sleep 15
+end
+
+every 1.day, :at => '4:30 am' do
+  runner 'TermExpiration.perform_async'
 end
