@@ -16,6 +16,11 @@ class SearchTerm < ActiveRecord::Base
     updated_at < 7.days.ago
   end
 
+  def cancel_term
+    update_attribute :expired, true
+    update_attribute :expired_at, Time.now
+  end
+
   private
 
   def assign_ksl_query_string

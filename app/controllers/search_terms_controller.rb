@@ -19,6 +19,13 @@ class SearchTermsController < ApplicationController
     respond_with(@search_term)
   end
 
+  def cancel
+    @search_term = SearchTerm.find_by_id(params[:search_term_id])
+    @search_term.cancel_term
+    flash[:success] = "That term was canceled!"
+    redirect_to user_dashboard_path
+  end
+
   def edit
   end
 

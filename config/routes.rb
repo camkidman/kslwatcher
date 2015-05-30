@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/users/dashboard' => 'users#dashboard', as: 'user_dashboard'
-  resources :search_terms
+  resources :search_terms do
+    get '/search_term/:search_term_id' => 'search_terms#cancel', as: 'cancel'
+  end
   resources :charges
 
   require 'sidekiq/web'

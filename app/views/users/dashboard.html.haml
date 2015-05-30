@@ -22,4 +22,6 @@
           = search_term.created_at
         %td
           Canceled??
+        %td
+          = link_to("Cancel notifications for this term", search_term_cancel_path(search_term.id))
 
