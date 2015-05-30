@@ -1,6 +1,6 @@
 class SearchTerm < ActiveRecord::Base
   has_one :feed
-  has_and_belongs_to_many :users
+  belongs_to :user
 
   after_create :assign_ksl_query_string
   after_create :create_feedjira_feed

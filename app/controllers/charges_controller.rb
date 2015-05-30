@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
         :description => 'Customer from KSL Notifications',
         :currency    => 'usd'
     )
-    charges_params["terms"].each {|search_term| @user.search_terms.create(term: search_term)}
+    charges_params["terms"].each {|search_term| @user.search_terms.create(term: search_term, user_id: @user.id)}
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
