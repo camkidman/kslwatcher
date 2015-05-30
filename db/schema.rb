@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528030107) do
+ActiveRecord::Schema.define(version: 20150530015632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20150528030107) do
     t.text     "rss_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "expired"
+    t.datetime "expired_at"
   end
 
   create_table "search_terms_users", id: false, force: true do |t|

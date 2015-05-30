@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get '/users/:id/dashboard' => 'users#dashboard'
+  get '/users/dashboard' => 'users#dashboard', as: 'user_dashboard'
   resources :search_terms
   resources :charges
 

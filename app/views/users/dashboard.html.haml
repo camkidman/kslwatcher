@@ -12,14 +12,14 @@
       %td
         Canceled At
   %tbody
-    %tr
-      - @search_terms.each do |search_term|
+    - @search_terms.each do |search_term|
+      %tr
         %td
-          - search_term.term.humanize
+          = search_term.term
         %td
-          - search_term.expired.humanize
+          = search_term.expired
         %td
-          - search_term.created_at
+          = search_term.created_at
         %td
           Canceled??
 

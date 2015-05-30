@@ -9,4 +9,6 @@
   %body
     %p.notice= notice
     %p.alert= alert
+    - if user_signed_in?
+      %a= link_to("Your Dashboard", user_dashboard_path)
     = yield
