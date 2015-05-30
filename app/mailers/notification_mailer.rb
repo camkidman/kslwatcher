@@ -8,7 +8,7 @@ class NotificationMailer < ActionMailer::Base
   def new_post(user, search_term, post_url)
     sendgrid_category "New Post"
     @user = user
-    @term_text = search_term.term
+    @term_text = search_term
     @post_url = post_url
     mail(to: @user.email, subject: "There's a new update from KSL Notifications!")
   end
