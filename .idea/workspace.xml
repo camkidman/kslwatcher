@@ -58,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/app/workers/rss_updater.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.13392857">
-              <caret line="9" column="81" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="81" />
+              <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -886,7 +886,7 @@
     <entry file="file://$PROJECT_DIR$/app/workers/rss_updater.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13392857">
-          <caret line="9" column="81" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="81" />
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
           <folding />
         </state>
       </provider>
