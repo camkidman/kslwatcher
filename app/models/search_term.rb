@@ -3,6 +3,7 @@ class SearchTerm < ActiveRecord::Base
   has_and_belongs_to_many :users
 
   after_create :assign_ksl_query_string
+  after_create :create_feedjira_feed
 
   def parse_term_to_html_string(string)
     string.gsub(' ', '%20')
@@ -25,5 +26,9 @@ class SearchTerm < ActiveRecord::Base
 
   def assign_ksl_query_string
     self.update_attribute :rss_url, ksl_query_string(self.term)
+  end
+
+  def create_feedjira_feed
+    self.create_feed(serialized_feedjira: YAML::dump(Feedjira::Feed.fetch_and_parse(self.rss_url)))
   end
 end
