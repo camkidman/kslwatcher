@@ -47,6 +47,7 @@ gem 'stripe'
 gem "haml-rails", "~> 0.9"
 gem 'puma'
 gem 'le'
+gem 'sidetiq'
 
 group :development do
   gem 'meta_request'

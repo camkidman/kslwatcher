@@ -1,5 +1,8 @@
 class RssUpdater
   include Sidekiq::Worker
+  include Sidetiq::Schedulable
+
+  recurrence { minutely }
 
   def perform
     all_terms = SearchTerm.all
