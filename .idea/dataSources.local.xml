@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails kslwatcher: development" uuid="775b83b1-b332-4f12-af00-1ad52dde964b">
+      <user-name>ksl_user</user-name>
+      <schema-pattern>kslwatcher_development.pg_catalog kslwatcher_development.public</schema-pattern>
+      <default-schemas>kslwatcher_development.pg_catalog kslwatcher_development.public</default-schemas>
+    </data-source>
+    <data-source name="Rails kslwatcher: test" uuid="e843a0b2-21ef-4a99-b280-f5c4a7c87fa2">
+      <user-name>ksl_user</user-name>
+      <schema-pattern>kslwatcher_test.pg_catalog kslwatcher_test.public</schema-pattern>
+      <default-schemas>kslwatcher_test.pg_catalog kslwatcher_test.public</default-schemas>
+    </data-source>
+    <data-source name="Rails kslwatcher: production" uuid="c8ff6499-80f5-4483-823b-b31f966d3bf6">
+      <first-sync>true</first-sync>
+      <user-name>&lt;%= ENV['KSLWATCHER_DATABASE_USER'] %&gt;</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe1dff9dfe6dffddfebdffedfe9dfe2dfefdff8dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>

@@ -40,7 +40,6 @@ gem 'spring',        group: :development
 gem 'feedjira'
 gem 'devise'
 gem 'sidekiq'
-gem 'whenever', :require => false
 gem 'sinatra', :require => nil
 gem 'sendgrid'
 gem 'stripe'
@@ -48,6 +47,7 @@ gem "haml-rails", "~> 0.9"
 gem 'puma'
 gem 'le'
 gem 'sidetiq'
+gem 'foundation-rails'
 
 group :development do
   gem 'meta_request'

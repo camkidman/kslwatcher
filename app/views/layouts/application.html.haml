@@ -5,10 +5,90 @@
     %title Kslwatcher
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag "vendor/modernizr"
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     = csrf_meta_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
-    - if user_signed_in?
-      %a= link_to("Your Dashboard", user_dashboard_path)
-    = yield
+    %nav.top-bar{"data-topbar" => ""}
+      %ul.title-area
+        %li.name
+          %h1
+            %a{:href => "#"}
+              KSL Notifications
+        %li.toggle-topbar.menu-icon
+          %a{:href => "#"}
+            %span menu
+      %section.top-bar-section
+        %ul.right
+          %li.divider
+          - if user_signed_in?
+            %li
+              = link_to("Your dashboard", user_dashboard_path)
+            %li.divider
+          %li
+            = link_to("Search for a new term!", new_search_term_path)
+    /
+      <div class="row">
+      <div class="large-12 columns">
+
+
+
+      <div class="row">
+      <div class="large-12 hide-for-small">
+
+      <div id="featured" data-orbit>
+      <img src="http://placehold.it/1200x500&amp;text=Slide Image 1" alt="slide image">
+      <img src="http://placehold.it/1200x500&amp;text=Slide Image 2" alt="slide image">
+      <img src="http://placehold.it/1200x500&amp;text=Slide Image 3" alt="slide image">
+      </div>
+
+      </div>
+      </div>
+    .row
+      -#.large-12.columns.show-for-small
+      -#  %img{:src => "http://placehold.it/1200x700&text=Mobile Header"}
+      %p.notice= notice
+      %p.alert= alert
+    %br
+    .row
+      .large-12.columns
+        .row
+          .large-4.small-6.columns
+            %h4 What is KSL Updates?
+            %hr
+              .row
+                .large-12.columns
+                  %p It's simple really. You tell us what you're looking for and we'll tell you when someone posts about it!
+              %hr
+                .hide-for-small
+                  .row
+                    .large-12.columns
+                      %p We have to keep our servers up, so you pay $1/search term and we'll send you updates on it for a week!
+                  %hr
+                    .row
+                      .large-12.columns
+                        %p I just built this and I've already used it to find things that I was looking for. I found a new router and a squat rack!
+                    %hr
+                      .row
+                        .large-12.columns
+                          %p This paragraph is mostly just filler text. I'm debating on even having anything at all right here. First time using foundation, woo!
+          .large-7.columns
+            = yield
+      %footer.row
+        .large-12.columns
+          %hr
+            .row
+              .large-6.columns
+                %p © KSL Notifications, 2015.
+              -#.large-6.small-12.columns
+              -#  %ul.inline-list.right
+              -#    %li
+              -#      %a{:href => "#"} Link 1
+              -#    %li
+              -#      %a{:href => "#"} Link 2
+              -#    %li
+              -#      %a{:href => "#"} Link 3
+              -#    %li
+              -#      %a{:href => "#"} Link 4
+      :javascript
+        $(document).foundation();
