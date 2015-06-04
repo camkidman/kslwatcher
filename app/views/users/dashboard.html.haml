@@ -17,11 +17,15 @@
         %td
           = search_term.term
         %td
-          = search_term.expired
+          - if search_term.expired?
+            = "Yes"
         %td
-          = search_term.created_at
+          = search_term.created_at.strftime("%m-%d-%y")
         %td
-          Canceled??
+          - if search_term.expired_at.nil?
+            = " "
+          - else
+            = search_term.expired_at.strftime("%m-%d-%y")
         %td
-          = link_to("Cancel notifications for this term", search_term_cancel_path(search_term.id))
+          = link_to("Cancel Notifications", search_term_cancel_path(search_term.id))
 

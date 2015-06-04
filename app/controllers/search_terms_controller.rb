@@ -7,7 +7,11 @@ class SearchTermsController < ApplicationController
   def index
     @new_term = SearchTerm.new
     @search_terms = SearchTerm.all
-    respond_with(@search_terms)
+    if current_user.email == "cameronjkidman@gmail.com"
+      respond_with(@search_terms)
+    else
+      redirect_to new_search_term_path
+    end
   end
 
   def show
